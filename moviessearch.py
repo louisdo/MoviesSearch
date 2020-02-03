@@ -4,7 +4,7 @@ import pandas as pd
 import nltk
 
 class MoviesSearchEngine:
-    def __init__(self,tokenized_data_path,meta_data_path):
+    def __init__(self,tokenized_data_path:str,meta_data_path:str)->None:
         self.tokenized_data=pd.read_csv(tokenized_data_path)
         self.tokenized_data.tokens = self.tokenized_data.tokens.str.split(",")
         self.meta_data=pd.read_csv(meta_data_path)
@@ -15,7 +15,7 @@ class MoviesSearchEngine:
         self._tokens=list(sorted(self.tokens.keys()))
         self.tokens_index={self._tokens[index]:index for index in range(len(self._tokens))}
 
-    def search(self,query:str):
+    def search(self,query:str)->list:
         tokenized_query=nltk.word_tokenize(query)
         tokenized_query=[token.lower() for token in tokenized_query \
                          if token.isalnum()]
