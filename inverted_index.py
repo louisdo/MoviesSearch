@@ -4,7 +4,7 @@ from collections import Counter
 
 
 class InvertedIndexSparseMatrix:
-    def __init__(self,tokenized_data,tokens,tokens_doc_freq)->None:
+    def __init__(self,tokenized_data:"pd.DataFrame",tokens:Counter,tokens_doc_freq:Counter)->None:
         self.matrix=[]
         self.shape=(len(tokenized_data),len(tokens))
         _tokens=list(sorted(tokens.keys()))
@@ -24,7 +24,7 @@ class InvertedIndexSparseMatrix:
             self.matrix.append(matrix_row)
 
     @staticmethod
-    def tfidf(ins_token,tokens,tokens_doc_freq,corpus_size):
+    def tfidf(ins_token:list,tokens:Counter,tokens_doc_freq:Counter,corpus_size:int)->dict:
         ins_token_counter=Counter(ins_token)
         max_freq=max(ins_token_counter.items())[1]
         tfidfs={}
