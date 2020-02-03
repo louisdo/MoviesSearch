@@ -1,5 +1,5 @@
 # MoviesSearch
-A simple search engine using term frequency-inverse document frequenzy (TFIDF)<br />
+A simple search engine using term frequency-inverse document frequency (TFIDF)<br />
 I saw my cousin making this, got curious and tried to make my own
 
 # Prepare data
