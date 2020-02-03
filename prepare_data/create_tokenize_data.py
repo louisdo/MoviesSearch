@@ -8,11 +8,11 @@ from argparse import ArgumentParser
 
 
 
-def tokenize_genres(genres_list):
+def tokenize_genres(genres_list:"list of dicts")->list:
     return [genre["name"].lower() for genre in genres_list]
 
 
-def tokenize_cast(cast_list):
+def tokenize_cast(cast_list:"list of dicts")->list:
     #characters_list=[cast["character"].lower().replace("(voice)","").strip() for cast in cast_list]
     characters_list=[]
     for cast in cast_list[:10]:
@@ -22,7 +22,7 @@ def tokenize_cast(cast_list):
     return characters_list
 
 
-def tokenize_keywords(keyword_list):
+def tokenize_keywords(keyword_list:"list of dicts")->list:
     token_keyword=[]
     for kw in keyword_list:
         token_keyword.extend([item.lower() for item in nltk.word_tokenize(kw["name"]) if item.isalnum()])
@@ -30,7 +30,7 @@ def tokenize_keywords(keyword_list):
     return token_keyword
 
 
-def tokenize_sentence(sentence):
+def tokenize_sentence(sentence:str)->list:
     """
     This function can be used for the overview, tagline or any
     column that is of string representation
@@ -39,7 +39,7 @@ def tokenize_sentence(sentence):
     return [token.lower() for token in tokens if token.isalnum()]
 
 
-def create_tokenize_data(path):
+def create_tokenize_data(path:str)->pd.DataFrame:
     df=pd.read_csv(path)
     FUNCTIONS_2_APPLY={"genres":tokenize_genres,"cast":tokenize_cast,"keywords":tokenize_keywords}
 
