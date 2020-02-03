@@ -56,10 +56,10 @@ class InvertedIndexSparseMatrix:
         return dist**0.5
 
     @staticmethod
-    def vector_length(vector):
+    def vector_length(vector:"SparseVector")->float:
         return sum((item[1]**2 for item in vector))**0.5
 
-    def retrieve(self,vector,k=5):
+    def retrieve(self,vector:"SparseVector",k=5)->np.array:
         cosine_sims=[]
 
         len_vector=InvertedIndexSparseMatrix.vector_length(vector)
