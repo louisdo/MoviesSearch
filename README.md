@@ -8,7 +8,7 @@ I saw my cousin making this, got curious and tried to make my own
   rem "create a folder named 'data'"
   rem "move the csv file just downloaded in to 'data'"
   
-  python prepare_data.create_tokenize_data.py --csv-in ./data/general_movies_data.csv --csv-out ./data/tokenized_data.csv
+  python prepare_data/create_tokenize_data.py --csv-in ./data/general_movies_data.csv --csv-out ./data/tokenized_data.csv
   ```
 
 # How to run
