@@ -13,7 +13,6 @@ I saw my cousin making this, got curious and tried to make my own
 
 # How to run
 ```python
-p
 >>> from MoviesSearch import MoviesSearchEngine
 >>> search_engine=MoviesSearchEngine("path/to/tokenized/data","path/to/general/data")
 >>> search_engine.search("woody and buzz lightyear")
